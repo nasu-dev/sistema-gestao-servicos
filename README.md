@@ -12,6 +12,7 @@ Status atual
 - Edição e exclusão de clientes
 - Persistência com banco SQLite
 - Acesso via painel administrativo do Django
+- Validação CRUD de clientes via admin
 
 Próximas implementações
 -----------------------
