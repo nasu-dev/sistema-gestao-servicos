@@ -1,0 +1,15 @@
+<h1>Cadastrar Cliente</h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <div>
+        <input type="text" name="nome" placeholder="Nome">
+    </div>
+
+    <div>
+        <input type="text" name="telefone" placeholder="Telefone">
+    </div>
+
+    <button type="submit">Salvar</button>
+</form>
