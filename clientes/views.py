@@ -24,3 +24,8 @@ def editar_cliente(request, id):
         return redirect('listar_clientes')
 
     return render(request, 'clientes/editar.html', {'cliente': cliente})
+
+def excluir_cliente(request, id):
+    cliente = get_object_or_404(Cliente, id=id)
+    cliente.delete()
+    return redirect('listar_clientes')
