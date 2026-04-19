@@ -1,14 +1,18 @@
 <h1>Cadastrar Cliente</h1>
 
+{% if erro %}
+    <p style="color: red;">{{ erro }}
+{% endif %}
+    </p>
 <form method="POST">
     {% csrf_token %}
 
     <div>
-        <input type="text" name="nome" placeholder="Nome">
+        <input type="text" name="nome" placeholder="Nome" value="{{ nome}}">
     </div>
 
     <div>
-        <input type="text" name="telefone" placeholder="Telefone">
+        <input type="text" name="telefone" placeholder="Telefone" value="{{ telefone}}">
     </div>
 
     <button type="submit">Salvar</button>

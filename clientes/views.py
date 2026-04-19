@@ -9,6 +9,13 @@ def cadastrar_cliente(request):
     if request.method == 'POST':
         nome = request.POST.get('nome')
         telefone = request.POST.get('telefone')
+
+        if not nome or not telefone:
+            return render(request, 'clientes/cadastrar.html', {
+                'erro': 'Preencha todos os campos',
+                'nome': nome,
+                'telefone': telefone
+            })
         if nome and telefone:
             Cliente.objects.create(nome=nome, telefone=telefone)
             return redirect('listar_clientes')
@@ -18,8 +25,18 @@ def editar_cliente(request, id):
     cliente = get_object_or_404(Cliente, id=id)
 
     if request.method == 'POST':
-        cliente.nome = request.POST.get('nome')
-        cliente.telefone = request.POST.get('telefone')
+        nome = request.POST.get('nome')
+        telefone = request.POST.get('telefone')
+
+        if not nome or not telefone:
+            return render(request, 'clientes/editar.html', {
+                'cliente': cliente,
+                'erro': 'Preencha todos os campos',
+                'nome': nome,
+                'telefone': telefone
+            })
+        cliente.nome = nome
+        cliente.telefone = telefone
         cliente.save()
         return redirect('listar_clientes')
 
