@@ -5,6 +5,8 @@
 </div>
 <ul>
     {% for cliente in clientes %}
-        <li>{{ cliente.nome }} - {{cliente.telefone }}</li>
+        <li>{{ cliente.nome }} - {{cliente.telefone }}
+            <a href="{% url 'editar_cliente' cliente.id %}">Editar</a>
+        </li>
     {% endfor %}
 </ul>
