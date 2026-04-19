@@ -1,5 +1,8 @@
 <h1>Lista de Clientes</h1>
 
+<div>
+    <a href="{% url 'cadastrar' %}">Cadastrar novo cliente</a>
+</div>
 <ul>
     {% for cliente in clientes %}
         <li>{{ cliente.nome }} - {{cliente.telefone }}</li>

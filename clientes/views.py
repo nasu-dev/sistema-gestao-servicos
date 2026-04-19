@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Cliente
 
 def listar_clientes(request):
@@ -11,4 +11,5 @@ def cadastrar_cliente(request):
         telefone = request.POST.get('telefone')
         if nome and telefone:
             Cliente.objects.create(nome=nome, telefone=telefone)
+            return redirect('listar_clientes')
     return render(request, 'clientes/cadastrar.html')
