@@ -1,5 +1,11 @@
 <h1>Lista de Clientes</h1>
 
+{% if messages %}
+    {% for message in messages %}
+        <div>{{ message }}</div>
+    {% endfor %}
+{% endif %}
+
 <div>
     <a href="{% url 'cadastrar' %}">Cadastrar novo cliente</a>
 </div>

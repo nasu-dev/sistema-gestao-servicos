@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Cliente
 from .forms import ClienteForm
+from django.contrib import messages
 
 def listar_clientes(request):
     clientes = Cliente.objects.all()
@@ -12,6 +13,7 @@ def cadastrar_cliente(request):
 
         if form.is_valid():
             form.save()
+            messages.success(request, 'Cliente cadastrado com sucesso!')
             return redirect('listar_clientes')
     else:
         form = ClienteForm()
@@ -25,6 +27,7 @@ def editar_cliente(request, id):
         form = ClienteForm(request.POST, instance=cliente)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Cliente atualizado com sucesso!')
             return redirect('listar_clientes')
     else:
         form = ClienteForm(instance=cliente)
@@ -34,4 +37,5 @@ def editar_cliente(request, id):
 def excluir_cliente(request, id):
     cliente = get_object_or_404(Cliente, id=id)
     cliente.delete()
+    messages.success(request, 'Cliente excluído com sucesso!')
     return redirect('listar_clientes')
