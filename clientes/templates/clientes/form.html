@@ -2,7 +2,33 @@
 
 <form method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
+
+    <div>
+        <label>Nome</label>
+        {{ form.nome }}
+        {{ form.nome.errors }}
+    </div>
+    <div>
+        <label>Telefone</label>
+        {{ form.telefone }}
+        {{ form.telefone.errors }}
+    </div>
+    <div>
+        <label>Email</label>
+        {{ form.endereco }}
+        {{ form.endereco.errors }}
+    </div>
+    <div>
+        <label>Endereço</label>
+    {{ form.endereco }}
+    {{ form.endereco.errors }}
+    </div>
+    <div>
+        <label>Observações</label>
+        {{ form.observacoes }}
+        {{ form.observacoes.errors }}
+    </div>
+
 
     <button type="submit">Salvar</button>
     <a href="{% url 'listar_clientes' %}">Calcelar</a>
