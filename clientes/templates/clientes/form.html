@@ -1,35 +1,75 @@
 <h1>{{ titulo }}</h1>
 
-<form method="POST">
+{% load static %}
+    <link rel="stylesheet" href="{% static 'clientes/style.css' %}">
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="message {{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<form method="POST" novalidate>
     {% csrf_token %}
 
-    <div>
+    <div class="campo {% if form.nome.errors %}erro{% endif %}">
         <label>Nome</label>
         {{ form.nome }}
-        {{ form.nome.errors }}
+
+        {% if form.nome.errors %}
+        <span class="erro-texto">
+            {{ form.nome.errors.0 }}
+        </span>
+        {% endif %}
     </div>
-    <div>
+
+    <div class="campo {% if form.telefone.errors %}erro{% endif %}">
         <label>Telefone</label>
         {{ form.telefone }}
-        {{ form.telefone.errors }}
+
+        {% if form.telefone.errors %}
+        <span class="erro-texto">
+            {{ form.telefone.errors.0 }}
+        </span>
+        {% endif %}
     </div>
-    <div>
+
+    <div class="campo {% if form.email.errors %}erro{% endif %}">
         <label>Email</label>
-        {{ form.endereco }}
-        {{ form.endereco.errors }}
+        {{ form.email }}
+
+        {% if form.email.errors %}
+        <span class="erro-texto">
+            {{ form.email.errors.0 }}
+        </span>
+        {% endif %}
     </div>
-    <div>
+
+    <div class="campo {% if form.endereco.errors %}erro{% endif %}">
         <label>Endereço</label>
-    {{ form.endereco }}
-    {{ form.endereco.errors }}
+        {{ form.endereco }}
+
+        {% if form.endereco.errors %}
+        <span class="erro-texto">
+            {{ form.endereco.errors.0 }}
+        </span>
+        {% endif %}
     </div>
-    <div>
+
+    <div class="campo {% if form.observacoes.errors %}erro{% endif %}">
         <label>Observações</label>
         {{ form.observacoes }}
-        {{ form.observacoes.errors }}
+
+        {% if form.observacoes.errors %}
+        <span class="erro-texto">
+            {{ form.observacoes.errors.0 }}
+        </span>
+        {% endif %}
     </div>
 
 
     <button type="submit">Salvar</button>
-    <a href="{% url 'listar_clientes' %}">Calcelar</a>
+    <a href="{% url 'listar_clientes' %}">Cancelar</a>
 </form>

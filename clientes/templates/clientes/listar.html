@@ -1,8 +1,13 @@
 <h1>Lista de Clientes</h1>
 
+{% load static %}
+    <link rel="stylesheet" href="{% static 'clientes/style.css' %}">
+
 {% if messages %}
     {% for message in messages %}
-        <div style="color: green;">{{ message }}</div>
+        <div class="message {{ message.tags }}">
+            {{ message }}
+        </div>
     {% endfor %}
 {% endif %}
 
