@@ -1,19 +1,29 @@
 <h1>Lista de Clientes</h1>
 
+{% load static %}
+    <link rel="stylesheet" href="{% static 'clientes/style.css' %}">
+
 {% if messages %}
     {% for message in messages %}
-        <div style="color: green;">{{ message }}</div>
+        <div class="message {{ message.tags }}">
+            {{ message }}
+        </div>
     {% endfor %}
 {% endif %}
 
 <div>
-    <a href="{% url 'cadastrar' %}">Cadastrar novo cliente</a>
+    <a href="{% url 'cadastrar' %}" class="btn btn-primary">+ Novo Cliente</a>
 </div>
 <ul>
     {% for cliente in clientes %}
         <li>{{ cliente.nome }} - {{cliente.telefone }}
             <a href="{% url 'editar_cliente' cliente.id %}">Editar</a>
-            <a href="{% url 'excluir_cliente' cliente.id %}">Excluir</a>
+            <form method="POST" action="{% url 'excluir_cliente' cliente.id %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" onclick="return confirm('Tem certeza que deseja excluir?')">
+                    Excluir
+                </button>
+            </form>
         </li>
     {% endfor %}
 </ul>
