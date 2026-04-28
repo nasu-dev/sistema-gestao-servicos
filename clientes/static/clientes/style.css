@@ -1,0 +1,75 @@
+/*----Mensagens ----------------------------*/
+.message {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.error {
+    background-color: #ffd7c4;
+    color: #e74c3c;
+}
+
+/*----Campos formulário--------------------*/
+.campo {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.campo input,
+.campo textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+
+.campo.erro input,
+.campo.erro textarea{
+    border: 2px solid #e74c3c;
+    background-color: #fdecea;
+}
+
+.erro-texto {
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/*----Botão base---------------------------*/
+.btn {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: none;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+/*----Botão primário-----------------------*/
+.btn-primary {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+/*----Botão secundário---------------------*/
+.btn-secondary {
+    background-color: #95a5a6;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #7f8c8d;
+}
