@@ -1,7 +1,7 @@
 <h1>Lista de Clientes</h1>
 
 {% load static %}
-    <link rel="stylesheet" href="{% static 'clientes/style.css' %}">
+<link rel="stylesheet" href="{% static 'clientes/style.css' %}">
 
 {% if messages %}
     {% for message in messages %}
@@ -11,19 +11,35 @@
     {% endfor %}
 {% endif %}
 
-<div>
+<div class="topo-lista">
     <a href="{% url 'cadastrar' %}" class="btn btn-primary">+ Novo Cliente</a>
+
+    <form method="GET" class="form-busca">
+        <input type="text" name="busca" placeholder="Buscar cliente..." value="{{ busca }}">
+
+        <button type="submit" class="btn btn-secondary">Buscar</button>
+    </form>
 </div>
-<ul>
+
+<ul class="lista-clientes">
     {% for cliente in clientes %}
-        <li>{{ cliente.nome }} - {{cliente.telefone }}
-            <a href="{% url 'editar_cliente' cliente.id %}">Editar</a>
-            <form method="POST" action="{% url 'excluir_cliente' cliente.id %}" style="display:inline;">
+        <li class="item-cliente">
+            <div>
+                <strong>{{ cliente.nome }}</strong><br>
+                {{cliente.telefone }}
+            </div>
+            <div class="acoes">
+                <a href="{% url 'editar_cliente' cliente.id %}">✏️</a>
+
+                <form method="POST" action="{% url 'excluir_cliente' cliente.id %}" style="display:inline;">
                 {% csrf_token %}
-                <button type="submit" onclick="return confirm('Tem certeza que deseja excluir?')">
-                    Excluir
-                </button>
-            </form>
+                    <button type="submit" onclick="return confirm('Tem certeza que deseja excluir?')">
+                        🗑️
+                    </button>
+                </form>
+            </div>
         </li>
+    {% empty %}
+        <li>Nenhum cliente encontrado</li>
     {% endfor %}
 </ul>

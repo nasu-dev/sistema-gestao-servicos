@@ -5,8 +5,13 @@ from django.contrib import messages
 from django.views.decorators.http import require_POST
 
 def listar_clientes(request):
+    busca = request.GET.get('busca', '')
+
     clientes = Cliente.objects.all()
-    return render(request, 'clientes/listar.html', {'clientes': clientes})
+
+    if busca:
+        clientes = clientes.filter(nome__icontains=busca)
+    return render(request, 'clientes/listar.html', {'clientes': clientes, 'busca': busca})
 
 
 def cadastrar_cliente(request):
