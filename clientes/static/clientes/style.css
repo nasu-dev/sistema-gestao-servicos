@@ -1,4 +1,11 @@
-/*----Mensagens ----------------------------*/
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #f8f9fa;
+    color: #383838;
+    margin: 30px;
+}
+
+/
 .message {
     padding: 10px;
     margin: 10px 0;
@@ -26,7 +33,7 @@
 .campo textarea {
     padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 2px;
+    border-radius: 4px;
 }
 
 .campo.erro input,
@@ -49,27 +56,124 @@
     border: none;
     text-decoration: none;
     font-size: 14px;
-    font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
 }
 
 /*----Botão primário-----------------------*/
 .btn-primary {
-    background-color: #3498db;
+    background-color: #000000;
     color: white;
 }
 
 .btn-primary:hover {
-    background-color: #2980b9;
+    background-color: #00000090;
 }
 
 /*----Botão secundário---------------------*/
 .btn-secondary {
-    background-color: #95a5a6;
+    background-color: #7f8c8d;
     color: white;
 }
 
 .btn-secondary:hover {
-    background-color: #7f8c8d;
+    background-color: #95a5a6;
+}
+
+/*----Topo da listagem---------------------*/
+.topo-lista {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+/*----Busca--------------------------------*/
+.form-busca {
+    display: flex;
+    gap: 8px;
+}
+
+.form-busca input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    min-width: 220px;
+}
+
+/*----Lista de clientes--------------------*/
+.lista-clientes {
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+}
+
+.item-cliente {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid #e5e5e5;
+    flex-wrap: nowrap;
+}
+
+.item-cliente:hover {
+    background-color: #f0fff080;
+}
+
+/*----Dados--------------------------------*/
+.dados-cliente {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex: 1;
+}
+
+.cliente-nome {
+    min-width: 200px;
+    margin-left: 10px;
+}
+
+.cliente-telefone {
+    color: #444;
+    min-width: 140px;
+}
+
+/*----Ações--------------------------------*/
+.acoes {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    white-space: nowrap;
+}
+
+.acoes form {
+    margin: 0;
+}
+
+.btn-icone {
+    display: inline-flex;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 0;
+}
+
+.btn-icone:hover {
+    opacity: 0.7;
+}
+
+.form-inline {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+}
+.btn-excluir {
+    color: #e74c3c;
 }

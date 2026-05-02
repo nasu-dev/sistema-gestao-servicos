@@ -22,24 +22,25 @@
 </div>
 
 <ul class="lista-clientes">
-    {% for cliente in clientes %}
-        <li class="item-cliente">
-            <div>
-                <strong>{{ cliente.nome }}</strong><br>
-                {{cliente.telefone }}
-            </div>
-            <div class="acoes">
-                <a href="{% url 'editar_cliente' cliente.id %}">✏️</a>
+{% for cliente in clientes %}
+    <li class="item-cliente">
+        <div class="dados-cliente">
+            <span class="cliente-nome">{{ cliente.nome }}</span>
+            <span class="cliente-telefone">{{cliente.telefone }}</span>
+        </div>
 
-                <form method="POST" action="{% url 'excluir_cliente' cliente.id %}" style="display:inline;">
+        <div class="acoes">
+            <a href="{% url 'editar_cliente' cliente.id %}" class="btn-icone">✏️</a>
+
+            <form method="POST" action="{% url 'excluir_cliente' cliente.id %}" class="form-inline">
                 {% csrf_token %}
-                    <button type="submit" onclick="return confirm('Tem certeza que deseja excluir?')">
-                        🗑️
-                    </button>
-                </form>
-            </div>
-        </li>
-    {% empty %}
-        <li>Nenhum cliente encontrado</li>
-    {% endfor %}
+                <button type="submit" class="btn-icone btn-excluir" onclick="return confirm('Tem certeza que deseja excluir?')">
+                    🗑️
+                </button>
+            </form>
+        </div>
+    </li>
+{% empty %}
+    <li>Nenhum cliente encontrado</li>
+{% endfor %}
 </ul>
