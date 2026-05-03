@@ -177,3 +177,19 @@ body {
 .btn-excluir {
     color: #e74c3c;
 }
+
+/*----Paginação----------------------------*/
+.paginacao {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.pagina-info {
+    font-weight: 600;
+    color: #444;
+    padding: 8px 12px;
+}
