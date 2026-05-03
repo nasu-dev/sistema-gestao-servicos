@@ -3,6 +3,7 @@ from .models import Cliente
 from .forms import ClienteForm
 from django.contrib import messages
 from django.views.decorators.http import require_POST
+from django.core.paginator import Paginator
 
 def listar_clientes(request):
     busca = request.GET.get('busca', '')
@@ -11,7 +12,11 @@ def listar_clientes(request):
 
     if busca:
         clientes = clientes.filter(nome__icontains=busca)
-    return render(request, 'clientes/listar.html', {'clientes': clientes, 'busca': busca})
+
+    paginator = Paginator(clientes, 6)
+    pagina = request.GET.get('page')
+    clientes_paginados = paginator.get_page(pagina)
+    return render(request, 'clientes/listar.html', {'clientes': clientes_paginados, 'busca': busca})
 
 
 def cadastrar_cliente(request):
