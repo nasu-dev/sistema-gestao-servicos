@@ -10,41 +10,55 @@
 </head>
 
 <body>
-<header class="topbar">
-    <div class="logo"> Sistema - Gestão de Serviços</div>
-    <div class="usuario-area">
-        {% if user.is_authenticated %}
-            <span>{{ user.username }}</span>
+<div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="Sidebar">
+        <div class="brand">
+            <h2>Nasu.dev</h2>
+            <span>Gestão de Serviços</span>
+        </div>
 
-            <form method="POST" action="{% url 'logout' %}">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-secondary">Sair</button>
-            </form>
-        {% endif %}
-    </div>
-</header>
-
-<div class="layout">
-    <aside class="sidebar">
-        <a href="{% url 'listar_clientes' %}">Clientes</a>
-        <a href="#">Serviços</a>
-        <a href="#">Agendamentos</a>
-        <a href="#">Financeiro</a>
+        <nav class="menu">
+            <a href="{% url 'listar_clientes' %}">Clientes</a>
+            <a href="#">Serviços</a>
+            <a href="#">Agendamentos</a>
+            <a href="#">Financeiro</a>
+        </nav>
     </aside>
 
-    <main class="conteudo">
-        {% if messages %}
-            {% for message in messages %}
-                <div class="message {{ message.tags }}">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endif %}
+    <!-- Principal -->
+    <div class="main-area">
+        <header class="topbar">
+            <div class="page-title">
+                {% block page_title%}Painel{% endblock %}
+            </div>
 
-        {% block content %}
-        {% endblock %}
-    </main>
+            <div class="usuario-area">
+                {% if user.is_authenticated %}
+                    <span> Olá {{ user.username }}</span>
+                    <form method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-secondary">
+                            Sair
+                        </button>
+                    </form>
+                {% endif %}
+            </div>
+        </header>
 
+        <main class="conteudo">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="message {{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
 </div>
 
 </body>
