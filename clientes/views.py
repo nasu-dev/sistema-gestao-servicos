@@ -4,7 +4,9 @@ from .forms import ClienteForm
 from django.contrib import messages
 from django.views.decorators.http import require_POST
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def listar_clientes(request):
     busca = request.GET.get('busca', '')
 
@@ -18,7 +20,7 @@ def listar_clientes(request):
     clientes_paginados = paginator.get_page(pagina)
     return render(request, 'clientes/listar.html', {'clientes': clientes_paginados, 'busca': busca})
 
-
+@login_required
 def cadastrar_cliente(request):
     if request.method == 'POST':
         form = ClienteForm(request.POST)
@@ -38,6 +40,7 @@ def cadastrar_cliente(request):
         'titulo': 'Cadastrar Clientes'
     })
 
+@login_required
 def editar_cliente(request, id):
     cliente = get_object_or_404(Cliente, id=id)
     if request.method == 'POST':
@@ -53,6 +56,7 @@ def editar_cliente(request, id):
 
     return render(request, 'clientes/form.html', {'form': form, 'titulo': 'Editar Cliente'})
 
+@login_required
 @require_POST
 def excluir_cliente(request, id):
     cliente = get_object_or_404(Cliente, id=id)
