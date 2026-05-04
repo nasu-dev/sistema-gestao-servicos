@@ -1,15 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}Clientes{% endblock %}
+{% block content %}
 <h1>Lista de Clientes</h1>
-
-{% load static %}
-<link rel="stylesheet" href="{% static 'clientes/style.css' %}">
-
-{% if messages %}
-    {% for message in messages %}
-        <div class="message {{ message.tags }}">
-            {{ message }}
-        </div>
-    {% endfor %}
-{% endif %}
 
 <div class="topo-lista">
     <a href="{% url 'cadastrar' %}" class="btn btn-primary">+ Novo Cliente</a>
@@ -56,5 +48,7 @@
     {% if clientes.has_next %}
         <a href="?page={{ clientes.next_page_number }}&busca={{ busca }}" class="btn btn-secondary">Próxima</a>
         <a href="?page={{ clientes.paginator.num_pages }}&busca={{ busca }}" class="btn btn-secondary">Última</a>
-    {% endif%}
+    {% endif %}
 </div>
+
+{% endblock %}

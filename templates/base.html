@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sistema{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'clientes/style.css' %}">
+</head>
+
+<body>
+<header class="topbar">
+    <div class="logo"> Sistema - Gestão de Serviços</div>
+    <div class="usuario-area">
+        {% if user.is_authenticated %}
+            <span>{{ user.username }}</span>
+
+            <form method="POST" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-secondary">Sair</button>
+            </form>
+        {% endif %}
+    </div>
+</header>
+
+<div class="layout">
+    <aside class="sidebar">
+        <a href="{% url 'listar_clientes' %}">Clientes</a>
+        <a href="#">Serviços</a>
+        <a href="#">Agendamentos</a>
+        <a href="#">Financeiro</a>
+    </aside>
+
+    <main class="conteudo">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% block content %}
+        {% endblock %}
+    </main>
+
+</div>
+
+</body>
+</html>
