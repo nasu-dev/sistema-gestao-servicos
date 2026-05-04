@@ -193,3 +193,34 @@ body {
     color: #444;
     padding: 8px 12px;
 }
+
+/*----Login--------------------------------*/
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-tems: center;
+    background: #f4f6f8;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 380px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08)
+}
+
+.login-box h1 {
+    margin-botton: 8px;
+}
+
+.subtitulo {
+    color: #666;
+    margin-botton: 20px;
+}
+
+.btn-full {
+    width: 100%
+}
