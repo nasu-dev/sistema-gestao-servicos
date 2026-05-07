@@ -1,11 +1,115 @@
+/*----Global-------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: "Segoe UI", sans-serif;
     background-color: #f8f9fa;
     color: #383838;
-    margin: 30px;
+    margin: 0;
+}
+/*----Layout principal---------------------*/
+.app-layout {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
 }
 
-/
+.main-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+/*----Topo---------------------------------*/
+.topbar {
+    height: 50px;
+    background: #4c4c4c;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    border-bottom: 1px solid #222;
+}
+
+.usuario-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/*----Sidebar------------------------------*/
+.sidebar {
+    width: 240px;
+    min-height: calc(100vh - 70px);
+    background: #1c1c1c;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sidebar a {
+    display: block;
+    width: 100%;
+    color: #e5e5e5;
+    text-decoration: none;
+    padding-top: 10px;
+    padding: 12px;
+    border: 4px;
+    transition: 0.5s;
+}
+
+.sidebar a:hover {
+    background: #cccccc;
+    color: #000000;
+}
+
+.brand {
+    padding: 5px;
+    padding-bottom: 15px;
+}
+.brand h2 {
+    display: block;
+    color: #ffffff85;
+    font-size: 20px;
+}
+
+.brand span {
+    display: block;
+    color: #9ca3af;
+    font-size: 16px;
+    margin-top: 4px;
+}
+
+.nav-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.logout-icon {
+    width: 18px;
+    height: 18px;
+}
+
+/*----Conteúdo-----------------------------*/
+.conteudo {
+    flex: 1;
+    padding: 32px;
+    background: #ffffff;
+}
+
+.conteudo h1 {
+    margin-bottom: 24px;
+    font-size: 34px;
+}
+
+/*----Mensagens----------------------------*/
 .message {
     padding: 10px;
     margin: 10px 0;
@@ -63,7 +167,7 @@ body {
 /*----Botão primário-----------------------*/
 .btn-primary {
     background-color: #000000;
-    color: white;
+    color: #ffffff;
 }
 
 .btn-primary:hover {
@@ -73,11 +177,27 @@ body {
 /*----Botão secundário---------------------*/
 .btn-secondary {
     background-color: #7f8c8d;
-    color: white;
+    color: #ffffff;
 }
 
 .btn-secondary:hover {
     background-color: #95a5a6;
+}
+/*----Botão sair---------------------------*/
+.btn-exit {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 3px;
+    border: none;
+    text-decoration: none;
+    font-size: 10px;
+    cursor: pointer;
+    background: #f7f583;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-exit:hover {
+    background: #f7f69e;
 }
 
 /*----Topo da listagem---------------------*/
@@ -106,7 +226,7 @@ body {
 /*----Lista de clientes--------------------*/
 .lista-clientes {
     list-style: none;
-    padding: 20px;
+    padding: 12px;
     margin: 0;
 }
 
@@ -115,7 +235,7 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    padding: 14px 0;
+    padding: 10px 0;
     border-bottom: 1px solid #e5e5e5;
     flex-wrap: nowrap;
 }
@@ -199,7 +319,7 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-tems: center;
+    align-items: center;
     background: #f4f6f8;
 }
 
@@ -213,12 +333,12 @@ body {
 }
 
 .login-box h1 {
-    margin-botton: 8px;
+    margin-bottom: 8px;
 }
 
 .subtitulo {
     color: #666;
-    margin-botton: 20px;
+    margin-bottom: 20px;
 }
 
 .btn-full {

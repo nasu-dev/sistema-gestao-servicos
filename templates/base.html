@@ -12,17 +12,43 @@
 <body>
 <div class="app-layout">
     <!-- Sidebar -->
-    <aside class="Sidebar">
+    <aside class="sidebar">
         <div class="brand">
             <h2>Nasu.dev</h2>
             <span>Gestão de Serviços</span>
         </div>
 
         <nav class="menu">
-            <a href="{% url 'listar_clientes' %}">Clientes</a>
-            <a href="#">Serviços</a>
-            <a href="#">Agendamentos</a>
-            <a href="#">Financeiro</a>
+            <a href="{% url 'listar_clientes' %}">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <circle cx="12" cy="7" r="4"/>
+                    <path d="M5.5 21a6.5 6.5 0 0 1 13 0"/>
+                </svg>
+                Clientes
+            </a>
+            <a href="#">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <rect x="3" y="7" width="18" height="13" rx="2"/>
+                    <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                </svg>
+                Serviços
+            </a>
+            <a href="#">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <rect x="3" y="5" width="18" height="16" rx="2"/>
+                    <path d="M16 3v4"/>
+                    <path d="M8 3v4"/>
+                    <path d="M3 11h18"/>
+                </svg>
+                Agendamentos
+            </a>
+            <a href="#">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M12 3v18"/>
+                    <path d="M16 7a4 4 0 0 0-4-2a4 4 0 0 0 0 8a4 4 0 0 1 0 8a4 4 0 0 1-4-2"/>
+                </svg>
+                Financeiro
+            </a>
         </nav>
     </aside>
 
@@ -35,10 +61,15 @@
 
             <div class="usuario-area">
                 {% if user.is_authenticated %}
-                    <span> Olá {{ user.username }}</span>
+                    <span> Olá, {{ user.username }}</span>
                     <form method="POST" action="{% url 'logout' %}">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-secondary">
+                        <button type="submit" class="btn-exit">
+                            <svg class="logout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M14 8l4 4l-4 4"/>
+                                <path d="M18 12H9"/>
+                                <path d="M10 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5"/>
+                            </svg>
                             Sair
                         </button>
                     </form>
