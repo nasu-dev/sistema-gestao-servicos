@@ -61,7 +61,7 @@
 
             <div class="usuario-area">
                 {% if user.is_authenticated %}
-                    <span> Olá, {{ user.username }}</span>
+                    <span> Olá, <i>{{ user.username }}</i></span>
                     <form method="POST" action="{% url 'logout' %}">
                         {% csrf_token %}
                         <button type="submit" class="btn-exit">

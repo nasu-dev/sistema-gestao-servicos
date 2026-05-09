@@ -95,13 +95,15 @@ body {
 .logout-icon {
     width: 18px;
     height: 18px;
+    position: relative;
+    top: 3px;
 }
 
 /*----Conteúdo-----------------------------*/
 .conteudo {
     flex: 1;
     padding: 32px;
-    background: #ffffff;
+    background: #ebebeb;
 }
 
 .conteudo h1 {
@@ -155,7 +157,7 @@ body {
 /*----Botão base---------------------------*/
 .btn {
     display: inline-block;
-    padding: 10px 16px;
+    padding: 8px 12px;
     border-radius: 6px;
     border: none;
     text-decoration: none;
@@ -207,60 +209,72 @@ body {
     align-items: center;
     gap: 12px;
     flex-wrap: wrap;
-    margin: 20px 0;
+    margin-bottom: 20px;
+
 }
 
 /*----Busca--------------------------------*/
 .form-busca {
     display: flex;
-    gap: 8px;
+    align-items: center;
+    gap: 10px;
 }
 
 .form-busca input {
+    width: 300px;
+    max-width: 100%
+    height: 46px;
+    border: 1px solid #d1d5db;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    min-width: 220px;
+    border-radius: 10px;
+    font-size: 14px;
+    background: #ffffff;
+}
+
+.search-icon, .new-icon {
+    position: relative;
+    top: 3px;
 }
 
 /*----Lista de clientes--------------------*/
 .lista-clientes {
     list-style: none;
-    padding: 12px;
+    padding: 0px;
     margin: 0;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 0.1px 0.1px;
 }
 
 .item-cliente {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 2fr 1.3fr auto;
     align-items: center;
+    background: #ffffff;
     gap: 20px;
-    padding: 10px 0;
+    padding: 14px 18px;
     border-bottom: 1px solid #e5e5e5;
     flex-wrap: nowrap;
 }
 
 .item-cliente:hover {
-    background-color: #f0fff080;
+    background-color: #f9fafb;
 }
 
 /*----Dados--------------------------------*/
 .dados-cliente {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    gap: 28px;
-    flex: 1;
+    gap: 20px;
 }
 
-.cliente-nome {
-    min-width: 200px;
-    margin-left: 10px;
+.cliente-nome .cliente-telefone {
+    color: #111827;
 }
 
-.cliente-telefone {
-    color: #444;
-    min-width: 140px;
-}
 
 /*----Ações--------------------------------*/
 .acoes {
@@ -276,12 +290,16 @@ body {
 }
 
 .btn-icone {
+    width:30px;
+    height: 30px;
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border: none;
     background: none;
     cursor: pointer;
     font-size: 20px;
-    text-decoration: none;
+    color: #dc2626
     padding: 0;
 }
 
@@ -294,24 +312,40 @@ body {
     align-items: center;
     margin: 0;
 }
+
+.btn-editar {
+    background: #e6efff;
+    color: #002afc;
+}
+
 .btn-excluir {
-    color: #e74c3c;
+    background: #ffe6e7;
+    color: #fc1800;
+
+}
+.icon {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    fill: none;
 }
 
 /*----Paginação----------------------------*/
 .paginacao {
-    margin-top: 25px;
+    margin-top: 24px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     gap: 10px;
     flex-wrap: wrap;
+    font-size: 12   px;
 }
 
 .pagina-info {
     font-weight: 600;
-    color: #444;
+    color: #6b7280;
     padding: 8px 12px;
+    font-size: 12px;
 }
 
 /*----Login--------------------------------*/
