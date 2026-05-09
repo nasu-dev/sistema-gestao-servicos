@@ -235,6 +235,17 @@ body {
     position: relative;
     top: 3px;
 }
+/*----Cabeçalho de lista-------------------*/
+.cabecalho-lista {
+    display: grid;
+    grid-template-columns: 2fr 2fr 140px;
+    align-items: center;
+    background: none;
+    padding: 6px 10px;
+    gap: 16px;
+    font-weight: bold;
+    font-size: 14px;
+}
 
 /*----Lista de clientes--------------------*/
 .lista-clientes {
@@ -250,10 +261,10 @@ body {
 
 .item-cliente {
     display: grid;
-    grid-template-columns: 2fr 1.3fr auto;
+    grid-template-columns: 2fr 2fr 140px;
     align-items: center;
     background: #ffffff;
-    gap: 20px;
+    gap: 16px;
     padding: 14px 18px;
     border-bottom: 1px solid #e5e5e5;
     flex-wrap: nowrap;
@@ -263,23 +274,15 @@ body {
     background-color: #f9fafb;
 }
 
-/*----Dados--------------------------------*/
-.dados-cliente {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 20px;
-}
-
-.cliente-nome .cliente-telefone {
+.cliente-nome, .cliente-telefone {
     color: #111827;
 }
 
 
 /*----Ações--------------------------------*/
 .acoes {
-    margin-right: 10px;
     display: flex;
+    justify-content: flex-start;
     align-items: center;
     gap: 18px;
     white-space: nowrap;
@@ -299,7 +302,7 @@ body {
     background: none;
     cursor: pointer;
     font-size: 20px;
-    color: #dc2626
+    color: #dc2626;
     padding: 0;
 }
 

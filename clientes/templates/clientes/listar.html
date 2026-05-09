@@ -22,13 +22,16 @@
     </form>
 </div>
 
+<div class="cabecalho-lista">
+    <span>Nome</span>
+    <span>Telefone</span>
+    <span>Ações</span>
+</div>
 <ul class="lista-clientes">
 {% for cliente in clientes %}
     <li class="item-cliente">
-        <div class="dados-cliente">
-            <span class="cliente-nome">{{ cliente.nome }}</span>
-            <span class="cliente-telefone">{{cliente.telefone }}</span>
-        </div>
+        <span class="cliente-nome">{{ cliente.nome }}</span>
+        <span class="cliente-telefone">{{cliente.telefone }}</span>
 
         <div class="acoes">
             <a href="{% url 'editar_cliente' cliente.id %}" class="btn-icone btn-editar">
