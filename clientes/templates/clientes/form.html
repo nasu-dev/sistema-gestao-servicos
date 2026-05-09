@@ -1,15 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Clientes{% endblock %}
+{% block page_title %}Clientes{% endblock %}
+
+{% block content %}
+
 <h1>{{ titulo }}</h1>
-
-{% load static %}
-<link rel="stylesheet" href="{% static 'clientes/style.css' %}">
-
-{% if messages %}
-    {% for message in messages %}
-        <div class="message {{ message.tags }}">
-            {{ message }}
-        </div>
-    {% endfor %}
-{% endif %}
 
 <form method="POST" novalidate>
     {% csrf_token %}
@@ -73,3 +69,5 @@
     <button type="submit" class="btn btn-primary">Salvar</button>
     <a href="{% url 'listar_clientes' %}" class="btn btn-secondary">Cancelar</a>
 </form>
+
+{% endblock %}
