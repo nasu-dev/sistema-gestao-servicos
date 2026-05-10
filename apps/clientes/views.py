@@ -15,7 +15,7 @@ def listar_clientes(request):
     if busca:
         clientes = clientes.filter(nome__icontains=busca)
 
-    paginator = Paginator(clientes, 6)
+    paginator = Paginator(clientes, 5)
     pagina = request.GET.get('page')
     clientes_paginados = paginator.get_page(pagina)
     return render(request, 'clientes/listar.html', {'clientes': clientes_paginados, 'busca': busca})
